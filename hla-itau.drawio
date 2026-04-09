@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Página-1" id="W92dcQPLK5Ky4opzOolG">
-    <mxGraphModel dx="5391" dy="4789" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="3655" dy="3916" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -205,8 +205,8 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="YYMyKXkz91Ap7fzcnGvL-358" parent="YYMyKXkz91Ap7fzcnGvL-269" style="whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4 1 4;" value="&lt;div&gt;Para persistir os dados transacionais, decidi escolher o DynamoDB,&lt;/div&gt;&lt;div&gt;por ser uma base altamente  escalável, performática e fortemente&lt;/div&gt;&lt;div&gt;consistente se configurado a leitura corretamente.&lt;/div&gt;&lt;div&gt;Com isso iria&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;segurar a demanda de até 4k TPS&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;No DynamoDB eu utilizaria o Pattern de Single Table Design para maximizar performance e resolver as consultas em baixa latência&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Com operações transacionais (ACID), em casos onde pode ter&lt;/div&gt;&lt;div&gt;operações&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;em saldo simultâneas,&lt;/span&gt;&lt;/div&gt;&lt;div&gt;eu usaria Conditional Write para evitar Race Condition e&lt;/div&gt;&lt;div&gt;TransactWrite para garantir Atomicidade se alguma operação&lt;/div&gt;&lt;div&gt;falhar, fazendo o rollback do processo&amp;nbsp;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="240" width="438" x="2032" y="150" as="geometry" />
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-358" parent="YYMyKXkz91Ap7fzcnGvL-269" style="whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4 1 4;" value="&lt;div&gt;Para persistir os dados transacionais, decidi escolher o DynamoDB,&lt;/div&gt;&lt;div&gt;por ser uma base altamente  escalável, performática e fortemente&lt;/div&gt;&lt;div&gt;consistente se configurado a leitura corretamente.&lt;/div&gt;&lt;div&gt;Com isso iria&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;segurar a demanda de até 4k TPS&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;No DynamoDB eu utilizaria o Pattern de Single Table Design para maximizar performance e resolver as consultas em baixa latência&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Com operações transacionais (ACID), em casos onde pode ter&lt;/div&gt;&lt;div&gt;operações&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;em saldo simultâneas,&lt;/span&gt;&lt;/div&gt;&lt;div&gt;eu usaria Conditional Write para evitar Race Condition e&lt;/div&gt;&lt;div&gt;TransactWrite para garantir Atomicidade se alguma operação&lt;/div&gt;&lt;div&gt;falhar, fazendo o rollback do processo&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Caso tenha necessidade de consultas sem ter relação com o cliente,&lt;/div&gt;&lt;div&gt;criaria uma GSI, por exemplo, buscar todas as transações pendentes do sistema&amp;nbsp;STATUS#PENDENTE&lt;/div&gt;" vertex="1">
+          <mxGeometry height="280" width="438" x="2032" y="110" as="geometry" />
         </mxCell>
         <mxCell id="YYMyKXkz91Ap7fzcnGvL-517" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-359" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;dashPattern=8 4 1 4;" target="YYMyKXkz91Ap7fzcnGvL-207">
           <mxGeometry relative="1" as="geometry" />
@@ -441,6 +441,12 @@
               <mxPoint x="1410" y="608" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="41I97chphuxRJaCP0U7m-3" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="41I97chphuxRJaCP0U7m-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=8 4 1 4;" target="YYMyKXkz91Ap7fzcnGvL-445">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="41I97chphuxRJaCP0U7m-1" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4 1 4;" value="A base de consulta de saldo, também poderia ser segregada da base transacional, pra isso precisariamos de um fluxo ELT para hidratar essa base, porém isso adicionaria custo e também perderia consistência pois a atualização da bases ficariam descasadas em alguns momentos" vertex="1">
+          <mxGeometry height="151.5" width="258" x="1031" y="1400" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
