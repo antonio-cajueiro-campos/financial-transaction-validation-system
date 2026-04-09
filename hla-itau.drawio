@@ -1,0 +1,448 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Página-1" id="W92dcQPLK5Ky4opzOolG">
+    <mxGraphModel dx="5391" dy="4789" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-223" parent="1" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4 1 4;" value="&lt;blockquote style=&quot;font-family: Arial, Helvetica, sans-serif; font-size: small; text-align: start; background-color: rgb(255, 255, 255); margin-left: 0.8ex; padding-left: 1ex; border-left: 3px solid rgb(200, 200, 200); color: rgb(102, 102, 102);&quot;&gt;&lt;div style=&quot;line-height: 20px; margin-top: 1em; margin-bottom: 1em; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);&quot;&gt;&lt;b&gt;Case Técnico – Sistema de Validação de Transações Financeiras&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 20px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);&quot;&gt;&lt;b&gt;&lt;img data-emoji=&quot;📋&quot; class=&quot;an1&quot; alt=&quot;📋&quot; aria-label=&quot;📋&quot; draggable=&quot;false&quot; src=&quot;https://fonts.gstatic.com/s/e/notoemoji/17.0/1f4cb/32.png&quot; loading=&quot;lazy&quot; style=&quot;height: 1.2em; width: 1.2em; vertical-align: middle;&quot;&gt;&amp;nbsp;Contexto do Problema&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 20px; margin-top: 1em; margin-bottom: 1em; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);&quot;&gt;&lt;b&gt;O desafio é desenhar uma solução para modernizar um sistema de validação de transações financeiras&amp;nbsp;(PIX, TED e Boletos), responsável por receber requisições de múltiplos sistemas produtos e decidir, em tempo quase real, se uma transação deve ser aprovada, bloqueada para análise ou rejeitada.&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 20px; margin-top: 1em; margin-bottom: 1em; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);&quot;&gt;&lt;b&gt;O sistema deve ser escalável, resiliente e preparado para alto volume de transações.&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 20px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);&quot;&gt;&lt;b&gt;&lt;img data-emoji=&quot;⚙️&quot; class=&quot;an1&quot; alt=&quot;⚙️&quot; aria-label=&quot;⚙️&quot; draggable=&quot;false&quot; src=&quot;https://fonts.gstatic.com/s/e/notoemoji/17.0/2699_fe0f/32.png&quot; loading=&quot;lazy&quot; style=&quot;height: 1.2em; width: 1.2em; vertical-align: middle;&quot;&gt;&amp;nbsp;Premissas Técnicas&lt;/b&gt;&lt;/div&gt;&lt;ul&gt;&lt;li style=&quot;margin-left: 15px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0); line-height: 20px;&quot;&gt;Volume médio: 2.000 transações por segundo&lt;/li&gt;&lt;li style=&quot;margin-left: 15px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0); line-height: 20px;&quot;&gt;Picos: até 4.000 transações por segundo&lt;/li&gt;&lt;li style=&quot;margin-left: 15px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0); line-height: 20px;&quot;&gt;Latência máxima: 100 ms para resposta de validação&lt;/li&gt;&lt;li style=&quot;margin-left: 15px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0); line-height: 20px;&quot;&gt;Arquitetura: distribuída, orientada a eventos&lt;/li&gt;&lt;li style=&quot;margin-left: 15px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0); line-height: 20px;&quot;&gt;Stack esperada: Java / Spring Boot, AWS, mensageria&lt;/li&gt;&lt;/ul&gt;&lt;div style=&quot;line-height: 20px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);&quot;&gt;&lt;b&gt;&lt;img data-emoji=&quot;✅&quot; class=&quot;an1&quot; alt=&quot;✅&quot; aria-label=&quot;✅&quot; draggable=&quot;false&quot; src=&quot;https://fonts.gstatic.com/s/e/notoemoji/17.0/2705/32.png&quot; loading=&quot;lazy&quot; style=&quot;height: 1.2em; width: 1.2em; vertical-align: middle;&quot;&gt;&amp;nbsp;Requisitos do Sistema&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 20px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 20px; margin-left: 40px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);&quot;&gt;&lt;b&gt;Backend&lt;/b&gt;&lt;/div&gt;&lt;ol start=&quot;1&quot;&gt;&lt;li style=&quot;margin-left: 15px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0); line-height: 20px;&quot;&gt;Receber requisições de transação dos sistemas produtos (PIX, TED, Boleto).&lt;/li&gt;&lt;li style=&quot;margin-left: 15px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0); line-height: 20px;&quot;&gt;Validar transações considerando:&lt;/li&gt;&lt;ul&gt;&lt;li style=&quot;margin-left: 15px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0); line-height: 20px;&quot;&gt;Limites parametrizados por produto&lt;/li&gt;&lt;li style=&quot;margin-left: 15px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0); line-height: 20px;&quot;&gt;Saldo disponível do cliente&lt;/li&gt;&lt;/ul&gt;&lt;li style=&quot;margin-left: 15px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0); line-height: 20px;&quot;&gt;Responder ao sistema de origem com o status:&lt;/li&gt;&lt;ul&gt;&lt;li style=&quot;margin-left: 15px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0); line-height: 20px;&quot;&gt;Aprovada, Pendente (análise manual)&amp;nbsp;ou Rejeitada&lt;/li&gt;&lt;/ul&gt;&lt;li style=&quot;margin-left: 15px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0); line-height: 20px;&quot;&gt;Persistir todas as transações (aprovadas, rejeitadas e bloqueadas) para auditoria.&lt;/li&gt;&lt;li style=&quot;margin-left: 15px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0); line-height: 20px;&quot;&gt;Enviar transações bloqueadas para uma fila de aprovação manual.&lt;/li&gt;&lt;li style=&quot;margin-left: 15px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0); line-height: 20px;&quot;&gt;Processar decisões manuais (aprovação/rejeição) e notificar o sistema produto.&lt;/li&gt;&lt;li style=&quot;margin-left: 15px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0); line-height: 20px;&quot;&gt;Controlar saldo em tempo real, considerando reservas, débitos, créditos e estornos.&lt;/li&gt;&lt;/ol&gt;&lt;div style=&quot;line-height: 20px; margin-left: 40px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);&quot;&gt;&lt;b&gt;Frontend / Portal Operacional&lt;/b&gt;&lt;/div&gt;&lt;ol start=&quot;1&quot;&gt;&lt;li style=&quot;margin-left: 15px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0); line-height: 20px;&quot;&gt;Exibir transações bloqueadas aguardando decisão.&lt;/li&gt;&lt;li style=&quot;margin-left: 15px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0); line-height: 20px;&quot;&gt;Permitir aprovação ou rejeição manual das transações.&lt;/li&gt;&lt;li style=&quot;margin-left: 15px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0); line-height: 20px;&quot;&gt;Disponibilizar histórico de transações com filtros e agregações.&lt;/li&gt;&lt;li style=&quot;margin-left: 15px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0); line-height: 20px;&quot;&gt;Exibir saldo atual e projeções futuras.&lt;/li&gt;&lt;/ol&gt;&lt;div style=&quot;line-height: 20px; margin-top: 1em; margin-bottom: 1em; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);&quot;&gt;&lt;b&gt;Observações importantes:&lt;/b&gt;&lt;/div&gt;&lt;ul&gt;&lt;li style=&quot;margin-left: 15px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);&quot;&gt;O principal objetivo é entender seu&amp;nbsp;&lt;b&gt;raciocínio técnico&lt;/b&gt;, as&amp;nbsp;&lt;b&gt;decisões tomadas&lt;/b&gt;, os&amp;nbsp;&lt;b&gt;trade-offs&lt;/b&gt;&amp;nbsp;e a forma como você estrutura e comunica a solução.&lt;/li&gt;&lt;li style=&quot;margin-left: 15px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);&quot;&gt;&lt;div role=&quot;presentation&quot;&gt;Recomendamos utilizar a ferramenta&amp;nbsp;&lt;a href=&quot;http://draw.io/&quot; target=&quot;_blank&quot; data-saferedirecturl=&quot;https://www.google.com/url?q=http://draw.io&amp;amp;source=gmail&amp;amp;ust=1775596902641000&amp;amp;usg=AOvVaw2m12CDvmrOIzBJWZeOlvc9&quot; style=&quot;color: rgb(17, 85, 204);&quot;&gt;draw.io&lt;/a&gt;, mas fique à vontade para usar slides, diagramas ou qualquer material que ajude a explicar sua ideia.&lt;/div&gt;&lt;/li&gt;&lt;li style=&quot;margin-left: 15px; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);&quot;&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="1010" width="1460" x="-710" y="-2280" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-269" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="AWS / AZURE" vertex="1">
+          <mxGeometry height="1630" width="3490" x="890" y="-2310" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-512" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Retry/DLQ" vertex="1">
+          <mxGeometry height="63" width="140" x="1320" y="507" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-441" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-185" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="YYMyKXkz91Ap7fzcnGvL-367">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1830" y="790" />
+              <mxPoint x="1830" y="870" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-514" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-185" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="YYMyKXkz91Ap7fzcnGvL-512">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1550" y="539" />
+              <mxPoint x="1460" y="539" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-185" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="500" width="240" x="1490" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-189" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="API Rest&lt;div&gt;AKS / EKS&lt;/div&gt;" vertex="1">
+          <mxGeometry height="130" width="190" x="760" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-207" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Product System&lt;div&gt;&lt;span style=&quot;text-align: start;&quot;&gt;PIX, TED, Boleto&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="130" width="190" x="270" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-187" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-189" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;" target="YYMyKXkz91Ap7fzcnGvL-207">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="700" y="858" />
+              <mxPoint x="700" y="858" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-188" connectable="0" parent="YYMyKXkz91Ap7fzcnGvL-187" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="ID 012 - Pending (202)" vertex="1">
+          <mxGeometry relative="1" x="0.1648" y="-1" as="geometry">
+            <mxPoint x="19" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-204" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-207" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;" target="YYMyKXkz91Ap7fzcnGvL-189">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-205" connectable="0" parent="YYMyKXkz91Ap7fzcnGvL-204" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="PIX Customer&amp;nbsp;01&lt;div&gt;- R$800&lt;/div&gt;&lt;div&gt;ID 012&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.4457" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-206" connectable="0" parent="YYMyKXkz91Ap7fzcnGvL-204" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="PIX Customer&amp;nbsp;55&lt;div&gt;+ R$1200&lt;br&gt;ID 013&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.293" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-220" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Frontend&amp;nbsp;SSR/SPA&lt;div&gt;React / Angular&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="202" x="40" y="990" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-218" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-220" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="YYMyKXkz91Ap7fzcnGvL-362">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-271" parent="YYMyKXkz91Ap7fzcnGvL-269" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.eks_anywhere;" value="" vertex="1">
+          <mxGeometry height="53" width="53" x="920" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-191" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Kafka / MSK" vertex="1">
+          <mxGeometry height="170" width="90" x="1080" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-186" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-189" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="YYMyKXkz91Ap7fzcnGvL-191">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-198" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Partition 03" vertex="1">
+          <mxGeometry height="20" width="130" x="1180" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-196" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Partition 01" vertex="1">
+          <mxGeometry height="20" width="130" x="1180" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-200" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Partition 05" vertex="1">
+          <mxGeometry height="20" width="130" x="1180" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-270" parent="YYMyKXkz91Ap7fzcnGvL-269" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.eks_anywhere;" value="" vertex="1">
+          <mxGeometry height="60" width="60" x="1702" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-501" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-213" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2110" y="990" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-213" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Product System" vertex="1">
+          <mxGeometry height="120" width="200" x="2270" y="930" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-194" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-196" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#ffe6cc;strokeColor=#d79b00;" target="YYMyKXkz91Ap7fzcnGvL-190">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1362" y="750" />
+              <mxPoint x="1362" y="680" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-195" connectable="0" parent="YYMyKXkz91Ap7fzcnGvL-194" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Customer&amp;nbsp;01&lt;div&gt;Transaction 012&lt;br&gt;&lt;div&gt;- R$800&amp;nbsp;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.0667" as="geometry">
+            <mxPoint x="70" y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-197" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-198" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;fillColor=#ffe6cc;strokeColor=#d79b00;" target="YYMyKXkz91Ap7fzcnGvL-192">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-199" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-200" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;fillColor=#ffe6cc;strokeColor=#d79b00;" target="YYMyKXkz91Ap7fzcnGvL-193">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-214" parent="YYMyKXkz91Ap7fzcnGvL-269" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="KEDA / HPA autoscaling" vertex="1">
+          <mxGeometry height="30" width="150" x="1510" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-190" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Consumer AKS / EKS" vertex="1">
+          <mxGeometry height="120" width="200" x="1510" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-192" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Consumer AKS /&amp;nbsp;EKS" vertex="1">
+          <mxGeometry height="120" width="200" x="1510" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-193" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Consumer AKS /&amp;nbsp;EKS" vertex="1">
+          <mxGeometry height="120" width="200" x="1510" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-201" connectable="0" parent="YYMyKXkz91Ap7fzcnGvL-269" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Customer&amp;nbsp;01&lt;div&gt;Transaction 042&lt;br&gt;&lt;div&gt;- R$200&amp;nbsp;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry x="1356" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-202" connectable="0" parent="YYMyKXkz91Ap7fzcnGvL-269" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Customer 55&lt;div&gt;Transaction 013&lt;br&gt;&lt;div&gt;+ R$1200&amp;nbsp;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry x="1372" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-203" connectable="0" parent="YYMyKXkz91Ap7fzcnGvL-269" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Customer&amp;nbsp;85&lt;div&gt;Transaction 080&lt;br&gt;&lt;div&gt;+ R$3400&amp;nbsp;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry x="1410" y="910" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-273" parent="YYMyKXkz91Ap7fzcnGvL-269" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.managed_streaming_for_kafka;" value="" vertex="1">
+          <mxGeometry height="52" width="52" x="1050" y="718" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-275" parent="YYMyKXkz91Ap7fzcnGvL-269" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="HPA autoscaling" vertex="1">
+          <mxGeometry height="30" width="100" x="760" y="729" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-279" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-277" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="YYMyKXkz91Ap7fzcnGvL-189">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-277" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="BFF&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;EKS&lt;/span&gt;" vertex="1">
+          <mxGeometry height="120" width="190" x="760" y="1030" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-285" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;align=left;dashPattern=8 4 1 4;" value="&amp;nbsp; &amp;nbsp; PK: Cliente#&amp;lt;Id&amp;gt;&lt;br&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; &amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;SK:&amp;nbsp;Saldo&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; &amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;SK:&amp;nbsp;Limite#Pix&lt;br&gt;&amp;nbsp; &amp;nbsp;&amp;nbsp;SK:&amp;nbsp;Limite#Ted&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; &amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;SK:&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Limite#Boleto&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; &amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;SK: Transacao&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;#&amp;lt;timestamp&amp;gt;#&amp;lt;id&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; &amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;SK:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Reserva#&amp;lt;transacaoId&amp;gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="130" width="220" x="2139" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-455" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-286" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="YYMyKXkz91Ap7fzcnGvL-456">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2000" y="760" />
+              <mxPoint x="2229" y="760" />
+            </Array>
+            <mxPoint x="2090.000000000001" y="730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-286" parent="YYMyKXkz91Ap7fzcnGvL-269" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fff2cc;strokeColor=#d6b656;" value="TransacoesClientes&amp;nbsp;OLTP " vertex="1">
+          <mxGeometry height="90" width="180" x="1908.67" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-287" parent="YYMyKXkz91Ap7fzcnGvL-269" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.dynamo_db;fillColor=#2E73B8;gradientColor=none;" value="" vertex="1">
+          <mxGeometry height="51" width="45.33" x="2063.34" y="531" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-289" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-185" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;" target="YYMyKXkz91Ap7fzcnGvL-286">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1730" y="690" />
+              <mxPoint x="1830" y="690" />
+              <mxPoint x="1830" y="595" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-356" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;div&gt;Mensagerias:&lt;br&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Kafka / MSK&lt;/div&gt;&lt;div&gt;RabbitMQ / SQS&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="159.33" x="3270" y="1471.5" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-479" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-357" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;dashPattern=8 4 1 4;" target="YYMyKXkz91Ap7fzcnGvL-185">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-513" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-357" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;dashPattern=8 4 1 4;" target="YYMyKXkz91Ap7fzcnGvL-512">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-357" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4 1 4;" value="Nessa etapa, os EKS consomem os eventos de transação,&lt;div&gt;com a key do evento sendo o id do cliente para termos ordenação e&amp;nbsp;consistência no consumo dos eventos.&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Para o fluxo ter idempotência, o EKS faria uma validação pelo&lt;/div&gt;&lt;div&gt;Id único da transação&lt;br&gt;&lt;div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;O EKS usaria KEDA para escalar por demanda de eventos,&lt;/div&gt;&lt;div&gt;ou HPA por consumo de recursos.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Ele também consultaria a base de saldo, limites&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;parametrizados&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;por produto e persistiria as transações&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;para auditoria e&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;notificaria o produto&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;em caso de&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;aprovação/reprovação&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;de uma transação&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;O consumer também contaria com retry/ack e fila de DLQ para&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;reprocessamento de eventos que falharam&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="280" width="406" x="1407" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-482" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-358" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;dashPattern=8 4 1 4;" target="YYMyKXkz91Ap7fzcnGvL-285">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2250" y="520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-508" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-358" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;dashPattern=8 4 1 4;" target="YYMyKXkz91Ap7fzcnGvL-360">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2250" y="470" />
+              <mxPoint x="2470" y="470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-358" parent="YYMyKXkz91Ap7fzcnGvL-269" style="whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4 1 4;" value="&lt;div&gt;Para persistir os dados transacionais, decidi escolher o DynamoDB,&lt;/div&gt;&lt;div&gt;por ser uma base altamente  escalável, performática e fortemente&lt;/div&gt;&lt;div&gt;consistente se configurado a leitura corretamente.&lt;/div&gt;&lt;div&gt;Com isso iria&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;segurar a demanda de até 4k TPS&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;No DynamoDB eu utilizaria o Pattern de Single Table Design para maximizar performance e resolver as consultas em baixa latência&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Com operações transacionais (ACID), em casos onde pode ter&lt;/div&gt;&lt;div&gt;operações&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;em saldo simultâneas,&lt;/span&gt;&lt;/div&gt;&lt;div&gt;eu usaria Conditional Write para evitar Race Condition e&lt;/div&gt;&lt;div&gt;TransactWrite para garantir Atomicidade se alguma operação&lt;/div&gt;&lt;div&gt;falhar, fazendo o rollback do processo&amp;nbsp;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="240" width="438" x="2032" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-517" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-359" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;dashPattern=8 4 1 4;" target="YYMyKXkz91Ap7fzcnGvL-207">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-359" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4 1 4;" value="O Product System é responsável por enviar as requests&lt;div&gt;de transação, e analisar aprovações e reprovações feitas&lt;/div&gt;&lt;div&gt;pelo usuário&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="360" x="110" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-360" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;align=left;dashPattern=8 4 1 4;" value="&amp;nbsp; {&lt;br&gt;&amp;nbsp; &amp;nbsp; &quot;saldoDisponivel&quot;: &lt;span class=&quot;ͼq&quot;&gt;1000&lt;/span&gt;,&lt;br&gt;&amp;nbsp; &amp;nbsp; &quot;saldoReservado&quot;: &lt;span class=&quot;ͼq&quot;&gt;200&lt;/span&gt;&lt;br&gt;&amp;nbsp; }" vertex="1">
+          <mxGeometry height="90" width="160" x="2390" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-484" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-361" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=8 4 1 4;" target="YYMyKXkz91Ap7fzcnGvL-189">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-361" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4 1 4;" value="A API Rest faz um consumo&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;de requests de transação,&lt;/span&gt;&lt;div&gt;&lt;div&gt;com IDs dos clientes, valores, limite por&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;produto etc&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;e publica num tópico Kafka para ser processado.&lt;/span&gt;&lt;div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;O EKS também receberia requests do BFF para envio&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;de aprovações/reprovações de transação e&lt;/div&gt;&lt;div&gt;requests para consulta de saldo&lt;/div&gt;&lt;div&gt;e atualização de parametros de limite&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;O EKS usaria HPA ou se recebesse via eventos,&lt;/div&gt;&lt;div&gt;poderia ser um KEDA para scale on demanda&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="200" width="320" x="590" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-476" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-362" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="YYMyKXkz91Ap7fzcnGvL-475">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-362" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="APIM&amp;nbsp;&lt;div&gt;APIGee&lt;/div&gt;&lt;div&gt;APIGateway + WAF + Cognito&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="182" x="200" y="1150" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-363" parent="YYMyKXkz91Ap7fzcnGvL-269" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.api_gateway;" value="" vertex="1">
+          <mxGeometry height="48" width="48" x="360" y="1121" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-365" parent="YYMyKXkz91Ap7fzcnGvL-269" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.eks_anywhere;" value="" vertex="1">
+          <mxGeometry height="53" width="53" x="920" y="1007" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-366" parent="YYMyKXkz91Ap7fzcnGvL-269" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.eks_anywhere;" value="" vertex="1">
+          <mxGeometry height="50" width="50" x="2442" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-497" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-367" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="YYMyKXkz91Ap7fzcnGvL-213">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-367" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;div&gt;RabbitMQ / SQS&lt;/div&gt;&lt;div&gt;transacoes_notificacao&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;_resposta&lt;/span&gt;&lt;/div&gt;&lt;div&gt;aprovação / reprovação&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="1910" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-370" parent="YYMyKXkz91Ap7fzcnGvL-269" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.sqs;fillColor=#D9A741;gradientColor=none;" value="" vertex="1">
+          <mxGeometry height="53" width="48" x="2091" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-437" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-434" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="YYMyKXkz91Ap7fzcnGvL-190">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-434" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Partition 02" vertex="1">
+          <mxGeometry height="20" width="130" x="1180" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-438" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-435" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="YYMyKXkz91Ap7fzcnGvL-192">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-435" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Partition 04" vertex="1">
+          <mxGeometry height="20" width="130" x="1180" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-439" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-436" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="YYMyKXkz91Ap7fzcnGvL-193">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1362" y="900" />
+              <mxPoint x="1362" y="1010" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-436" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Partition N..." vertex="1">
+          <mxGeometry height="20" width="130" x="1180" y="890" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-445" parent="YYMyKXkz91Ap7fzcnGvL-269" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fff2cc;strokeColor=#d6b656;" value="TransacoesClientes OLTP" vertex="1">
+          <mxGeometry height="90" width="180" x="1070" y="1060" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-446" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-189" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="YYMyKXkz91Ap7fzcnGvL-445">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="910" y="960" />
+              <mxPoint x="1160" y="960" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-447" connectable="0" parent="YYMyKXkz91Ap7fzcnGvL-446" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Consulta Saldos&lt;div&gt;&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Atualiza Parametros de limite&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.1492" y="-4" as="geometry">
+            <mxPoint y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-448" parent="YYMyKXkz91Ap7fzcnGvL-269" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.dynamo_db;fillColor=#2E73B8;gradientColor=none;" value="" vertex="1">
+          <mxGeometry height="51" width="45.33" x="1222.34" y="1040" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-449" parent="YYMyKXkz91Ap7fzcnGvL-269" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.eks_anywhere;" value="" vertex="1">
+          <mxGeometry height="53" width="53" x="430" y="735" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-450" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;div&gt;Containers:&lt;br&gt;&lt;br&gt;&lt;/div&gt;EKS / AKS / ECS" vertex="1">
+          <mxGeometry height="80" width="160" x="3070" y="1471.5" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-451" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;div&gt;FW Frontend:&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;Angular / React" vertex="1">
+          <mxGeometry height="80" width="158" x="3070" y="1350" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-452" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;div&gt;Base ACID:&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;DynamoDB" vertex="1">
+          <mxGeometry height="80" width="158" x="2870" y="1471.5" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-461" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-456" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="YYMyKXkz91Ap7fzcnGvL-460">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-456" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="&lt;div&gt;DynamoDB Stream&lt;/div&gt;" vertex="1">
+          <mxGeometry height="39.5" width="161" x="2520" y="741.06" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-454" parent="YYMyKXkz91Ap7fzcnGvL-269" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#C925D1;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.dynamodb_stream;" value="" vertex="1">
+          <mxGeometry height="40" width="40" x="2661.33" y="713.43" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-460" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;div&gt;ELT / ETL&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="127.67" x="2742.33" y="740.56" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-463" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;API Gateway:&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;APIM&amp;nbsp;&lt;div&gt;APIGee&lt;/div&gt;&lt;div&gt;API Gateway&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="158" x="3270.66" y="1350" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-465" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-460" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="YYMyKXkz91Ap7fzcnGvL-464" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="3322" y="-1550" as="sourcePoint" />
+            <mxPoint x="3560" y="-1550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-468" parent="YYMyKXkz91Ap7fzcnGvL-269" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="FLUXO OLAP - ANALISE DE DADOS / AUDITORIA" vertex="1">
+          <mxGeometry height="194.25" width="888.67" x="2461.33" y="645.75" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-470" parent="YYMyKXkz91Ap7fzcnGvL-468" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="Athena" vertex="1">
+          <mxGeometry height="39.5" width="161" x="658.6700000000001" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-467" parent="YYMyKXkz91Ap7fzcnGvL-468" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.athena;fillColor=#F58534;gradientColor=none;" value="" vertex="1">
+          <mxGeometry height="47.68" width="51.33" x="794.67" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-516" parent="YYMyKXkz91Ap7fzcnGvL-468" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.eks_anywhere;" value="" vertex="1">
+          <mxGeometry height="42.09" width="42.09" x="388.67" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-464" parent="YYMyKXkz91Ap7fzcnGvL-468" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="&lt;div&gt;S3 / BlobStorage&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="119.67" x="468.6700000000001" y="94.80999999999995" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-462" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-468" source="YYMyKXkz91Ap7fzcnGvL-464" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="YYMyKXkz91Ap7fzcnGvL-470">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="115.05999999999995" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-466" parent="YYMyKXkz91Ap7fzcnGvL-468" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.s3;fillColor=#E05243;gradientColor=none;" value="" vertex="1">
+          <mxGeometry height="36.5" width="40" x="568.34" y="65.58999999999992" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-480" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-469" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=8 4 1 4;" target="YYMyKXkz91Ap7fzcnGvL-468">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-469" parent="YYMyKXkz91Ap7fzcnGvL-269" style="whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4 1 4;" value="&lt;div&gt;Para possibilitar a geração de relatórios e auditorias/BI,&lt;/div&gt;&lt;div&gt;eu utilizaria uma arquitetura OLAP,&amp;nbsp; transferindo os registros de dados transacionais&lt;/div&gt;&lt;div&gt;do OLTP para uma base fria (S3/BlobStorage) e Athena pra&lt;/div&gt;&lt;div&gt;consulta posterior para geração de BIs&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Vantagens de ter um sistema OLAP separado seria não impactar o&lt;/div&gt;&lt;div&gt;sistema transacional com as consultas e processamentos&lt;/div&gt;&lt;div&gt;pesados de dados, dentre outras vantagens também entra baixo custo&lt;/div&gt;&lt;div&gt;de operação, pois fazer scan num modelo nao otimizado pra scan teria um custo por leitura maior (RCU) do que num Blob Storage, além de i&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;solamento e flexibilidade..&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;TradeOffs:&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;Complexidade, latência e Consistência&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="240" width="480" x="2665.67" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-486" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-473" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;dashPattern=8 4 1 4;" target="YYMyKXkz91Ap7fzcnGvL-362">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-487" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-473" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;dashed=1;dashPattern=8 4 1 4;" target="YYMyKXkz91Ap7fzcnGvL-220">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="91" y="1476" />
+              <mxPoint x="91" y="1250" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-488" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-473" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;dashPattern=8 4 1 4;" target="YYMyKXkz91Ap7fzcnGvL-475">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="409" y="1310" />
+              <mxPoint x="540" y="1310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-511" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-473" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;dashPattern=8 4 1 4;" target="YYMyKXkz91Ap7fzcnGvL-277">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-473" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4 1 4;" value="&lt;div&gt;O usuário acessa a interface via Web, para poder&lt;/div&gt;&lt;div&gt;consultar saldo e aprovar/reprovar transações nao reconhecidas&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;O fluxo passa por um API gateway e Load Balancer para distribuir a carga e volumetria&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;ao BBF das&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;requests externas recebidas&amp;nbsp;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="151.5" width="320" x="250" y="1390" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-477" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-475" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="YYMyKXkz91Ap7fzcnGvL-277">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-475" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Load Balancer&lt;div&gt;NLB ALB&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="160" x="460" y="1145" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-481" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-358" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=8 4 1 4;" target="YYMyKXkz91Ap7fzcnGvL-286">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2250" y="470" />
+              <mxPoint x="1999" y="470" />
+              <mxPoint x="1999" y="550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-496" parent="YYMyKXkz91Ap7fzcnGvL-269" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.managed_streaming_for_kafka;" value="" vertex="1">
+          <mxGeometry height="38" width="38" x="1298" y="482" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-502" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-499" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" target="YYMyKXkz91Ap7fzcnGvL-185">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1830" y="990" />
+              <mxPoint x="1830" y="945" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-499" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;div&gt;RabbitMQ / SQS&lt;/div&gt;&lt;div&gt;transacoes_notificacao&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent;&quot;&gt;_comando&lt;/span&gt;&lt;/div&gt;&lt;div&gt;aprovação / reprovação&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="1908.67" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-500" parent="YYMyKXkz91Ap7fzcnGvL-269" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.sqs;fillColor=#D9A741;gradientColor=none;" value="" vertex="1">
+          <mxGeometry height="53" width="48" x="2091" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-505" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-504" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;dashPattern=8 4 1 4;" target="YYMyKXkz91Ap7fzcnGvL-499">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2009" y="1476" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-506" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-504" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=8 4 1 4;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="YYMyKXkz91Ap7fzcnGvL-213">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2370" y="1476" />
+            </Array>
+            <mxPoint x="2370" y="1060" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-504" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4 1 4;" value="Product System recebe a resposta de aprovação/reprovação, analisa e envia o comando ao sistema para prosseguir em:&lt;div&gt;&lt;br&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Caso aprove: Converte reserva em débito&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Case reprove:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;libera reserva&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="151.5" width="258" x="2070" y="1400" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-507" parent="YYMyKXkz91Ap7fzcnGvL-269" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4 1 4;" value="&lt;div&gt;Legenda&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="158" x="2870" y="1350" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-509" parent="YYMyKXkz91Ap7fzcnGvL-269" style="points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.webplus_web_app_service;" value="" vertex="1">
+          <mxGeometry height="54.900000000000006" width="54.900000000000006" x="215.0999999999999" y="962.55" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-510" parent="YYMyKXkz91Ap7fzcnGvL-269" style="points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.alb_application_load_balancer_01;" value="" vertex="1">
+          <mxGeometry height="40.2" width="47.400000000000006" x="590" y="1124.9" as="geometry" />
+        </mxCell>
+        <mxCell id="YYMyKXkz91Ap7fzcnGvL-515" edge="1" parent="YYMyKXkz91Ap7fzcnGvL-269" source="YYMyKXkz91Ap7fzcnGvL-512" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.007;entryY=0.076;entryDx=0;entryDy=0;entryPerimeter=0;" target="YYMyKXkz91Ap7fzcnGvL-185">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1410" y="608" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
